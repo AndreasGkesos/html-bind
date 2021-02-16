@@ -1,3 +1,15 @@
-:host .header {
+:host ::ng-deep .header {
     color: #2d81da;
+}
+
+.header {
+    color: #2d81da;
+}
+
+.paragraph {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }

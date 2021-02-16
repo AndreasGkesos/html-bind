@@ -1,4 +1,13 @@
 <p>details works!</p>
+<br>
+<mat-card color="primary" >Simple card</mat-card>
+<br>
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="bold">Bold</mat-button-toggle>
+    <mat-button-toggle value="italic">Italic</mat-button-toggle>
+    <mat-button-toggle value="underline">Underline</mat-button-toggle>
+</mat-button-toggle-group>
+
 <hr>
 <diV> Bind from pipe</diV>
 <div [innerHTML]="html | sanitize"></div>

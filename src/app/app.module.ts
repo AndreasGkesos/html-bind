@@ -10,6 +10,16 @@ import { DetailsComponent } from './components/details/details.component';
 import { AboutComponent } from './components/about/about.component';
 import { SanitizePipe } from './pipes/sanitize.pipe';
 import { BindComponent } from './components/bind/bind.component';
+import { EmptyComponent } from './components/empty/empty.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PortalModule } from '@angular/cdk/portal';
+
+import { MatSliderModule } from '@angular/material/slider';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -17,17 +27,27 @@ import { BindComponent } from './components/bind/bind.component';
     DetailsComponent,
     AboutComponent,
     SanitizePipe,
-    BindComponent
+    BindComponent,
+    EmptyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    PortalModule,
+    MatSliderModule,
+    MatCardModule,
+    MatButtonToggleModule,
+    MatInputModule
   ],
   providers: [
     DetailsResolver,
     AboutResolver
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    EmptyComponent
+  ]
 })
 export class AppModule { }
