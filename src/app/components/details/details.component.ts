@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
-  ,encapsulation: ViewEncapsulation.None
+  ,encapsulation: ViewEncapsulation.Emulated
 })
 export class DetailsComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this._routes.data.subscribe((response: any) => {
       this.html = response.html;
-      this.componentService.createComponent(this.html);
+      // this.componentService.createComponent(this.html);
     })
     
     this.changeRef.detectChanges();
