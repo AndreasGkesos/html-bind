@@ -1,5 +1,5 @@
 import { ComponentService } from './../../services/component.service';
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,10 +9,12 @@ import { ActivatedRoute } from '@angular/router';
   ,encapsulation: ViewEncapsulation.Emulated
 })
 export class DetailsComponent implements OnInit {
-
   html: string = '';
+
   
-  constructor(private _routes: ActivatedRoute, private componentService: ComponentService, private changeRef: ChangeDetectorRef) { }
+  constructor(private _routes: ActivatedRoute,
+              private componentService: ComponentService,
+              private changeRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this._routes.data.subscribe((response: any) => {

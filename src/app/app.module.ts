@@ -1,3 +1,5 @@
+import { PortalWrapperComponent } from './components/portal-wrapper/portal-wrapper.component';
+import { PortalComponent } from './components/portal/portal.component';
 import { AboutResolver } from './resolvers/about.resolve';
 import { DetailsResolver } from './resolvers/details.resolve';
 import { NgModule } from '@angular/core';
@@ -28,7 +30,9 @@ import {MatInputModule} from '@angular/material/input';
     AboutComponent,
     SanitizePipe,
     BindComponent,
-    EmptyComponent
+    EmptyComponent,
+    PortalComponent,
+    PortalWrapperComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

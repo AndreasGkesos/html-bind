@@ -7,10 +7,24 @@
     <mat-button-toggle value="italic">Italic</mat-button-toggle>
     <mat-button-toggle value="underline">Underline</mat-button-toggle>
 </mat-button-toggle-group>
-
+<div [innerHTML]="html"></div>
 <hr>
 <diV> Bind from pipe</diV>
+<p>====</p>
 <div [innerHTML]="html | sanitize"></div>
 <br>
 <diV> Bind from component</diV>
+<p>====</p>
 <app-bind [html]="html"></app-bind>
+<br>
+<div> Bind from portal</div>
+<p>====</p>
+<!-- <app-portal-wrapper>
+  {{html}}
+</app-portal-wrapper> -->
+<app-portal-wrapper>
+  <div>test portal bind</div>
+  <div [innerHTML]="html | sanitize"></div>
+  {{html}}
+</app-portal-wrapper>
+<app-portal></app-portal>

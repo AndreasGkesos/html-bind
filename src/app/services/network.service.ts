@@ -9,7 +9,7 @@ export class NetworkService {
   constructor(private http: HttpClient) { }
 
   getDetails() {
-    return this.http.get('https://run.mocky.io/v3/eebd3d1c-5294-4a68-9864-5ab291768656', { responseType: 'text' });
+    return this.http.get('https://run.mocky.io/v3/3a9f73e2-4e31-48e1-a371-037de4cb76d0', { responseType: 'text' });
   }
 
   getAbout() {
