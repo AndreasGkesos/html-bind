@@ -1,6 +1,8 @@
+import { getTestproperty, getDetailsContent } from './../../reducers/content.reducer';
 import { ComponentService } from './../../services/component.service';
-import { Component, OnInit, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-details',
@@ -14,15 +16,25 @@ export class DetailsComponent implements OnInit {
   
   constructor(private _routes: ActivatedRoute,
               private componentService: ComponentService,
-              private changeRef: ChangeDetectorRef) { }
+              private store: Store<any>) { }
 
-  ngOnInit(): void {
-    this._routes.data.subscribe((response: any) => {
-      this.html = response.html;
-      // this.componentService.createComponent(this.html);
-    })
-    
-    this.changeRef.detectChanges();
+  ngOnInit(): void {  
+    this.store.select(getTestproperty)
+      .subscribe(
+        data => {
+          console.log(data);
+        }
+    );
+
+    this.store.select(getDetailsContent)
+      .subscribe(
+        data => {
+          console.log(data);
+          if (data.content.length > 0) {
+            this.html = data.content;
+          }
+        }
+    );
   }
 
 }

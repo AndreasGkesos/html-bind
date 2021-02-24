@@ -22,6 +22,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatInputModule} from '@angular/material/input';
 
+import { StoreModule } from '@ngrx/store';
+import { contentReducer } from './reducers/content.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { ContentEffects } from './state/content.effects';
+
+
 
 @NgModule({
   declarations: [
@@ -43,7 +49,11 @@ import {MatInputModule} from '@angular/material/input';
     MatSliderModule,
     MatCardModule,
     MatButtonToggleModule,
-    MatInputModule
+    MatInputModule, 
+    StoreModule.forRoot({}, {}),
+    StoreModule.forFeature('content', contentReducer),
+    EffectsModule.forRoot([]),
+    EffectsModule.forFeature([ContentEffects])
   ],
   providers: [
     DetailsResolver,
